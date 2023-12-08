@@ -6,24 +6,24 @@ import (
 )
 
 type Place struct {
-	ID                   string
-	URL                  string
-	CommonName           string
-	Distance             int
-	PlaceType            string
-	AdditionalProperties []AdditionalProperty
-	Children             []Place
-	ChildrenURLs         []string
-	Lat                  int
-	Lon                  int
+	ID                   string               `json:"id"`
+	URL                  string               `json:"url"`
+	CommonName           string               `json:"commonName"`
+	Distance             int                  `json:"distance"`
+	PlaceType            string               `json:"placeType"`
+	AdditionalProperties []AdditionalProperty `json:"additionalProperties"`
+	Children             []Place              `json:"children"`
+	ChildrenURLs         []string             `json:"childrenUrls"`
+	Lat                  int                  `json:"lat"`
+	Lon                  int                  `json:"lon"`
 }
 
 type AdditionalProperty struct {
-	Category        string
-	Key             string
-	SourceSystemKey string
-	Value           string
-	Modified        string
+	Category        string `json:"category"`
+	Key             string `json:"key"`
+	SourceSystemKey string `json:"sourceSystemKey"`
+	Value           string `json:"value"`
+	Modified        string `json:"modified"`
 }
 
 // GetAllBikePoints gets all bike point locations. The Place object has an addtionalProperties array which contains the nbBikes, nbDocks and nbSpaces numbers which give the status of the BikePoint. A mismatch in these numbers i.e. nbDocks - (nbBikes + nbSpaces) != 0 indicates broken docks.
