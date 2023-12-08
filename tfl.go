@@ -15,8 +15,13 @@ type Client struct {
 	appKey     string
 }
 
-func (c *Client) get(ctx context.Context, path string, responseBody any) error {
-	path = addQueryParamsToPath(c.appID, c.appKey)
+func (c *Client) getWithQueryParams(ctx context.Context, path string, params map[string]string, responseBody any) error {
+	params["app_id"] = c.appID
+	params["app_key"] = c.appKey
+	path = path + "?"
+	for key, value := range params {
+		path = path + fmt.Sprintf("%s=%s&", key, value)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, path, nil)
 	if err != nil {
@@ -38,6 +43,10 @@ func (c *Client) get(ctx context.Context, path string, responseBody any) error {
 	}
 
 	return nil
+}
+
+func (c *Client) get(ctx context.Context, path string, responseBody any) error {
+	return c.getWithQueryParams(ctx, path, map[string]string{}, responseBody)
 }
 
 func addQueryParamsToPath(appID string, appKey string) string {

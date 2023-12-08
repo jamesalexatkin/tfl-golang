@@ -11,7 +11,7 @@ type Prediction struct {
 	ID                  string            `json:"id"`
 	OperationType       int               `json:"operationType"`
 	VehicleID           string            `json:"vehicleId"`
-	NaptainID           string            `json:"naptanId"`
+	NaptanID            string            `json:"naptanId"`
 	StationName         string            `json:"stationName"`
 	LineID              string            `json:"lineId"`
 	LineName            string            `json:"lineName"`
