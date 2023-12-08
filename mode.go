@@ -5,11 +5,6 @@ import (
 	"fmt"
 )
 
-type ActiveServiceType struct {
-	Mode        string `json:"mode"`
-	ServiceType string `json:"serviceType"`
-}
-
 // GetActiveServiceTypes returns the service type active for a mode. Currently only supports tube.
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Mode/Mode_GetActiveServiceTypes
 func (c *Client) GetActiveServiceTypes(ctx context.Context) ([]ActiveServiceType, error) {
