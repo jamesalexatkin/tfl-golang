@@ -13,17 +13,19 @@ const APIBaseURL = "https://api.tfl.gov.uk"
 
 // Client provides a mechanism to interact with the TfL API.
 type Client struct {
-	appID      string
-	appKey     string
-	httpClient *http.Client
+	AppID      string
+	AppKey     string
+	APIBaseURL string
+	HTTPClient *http.Client
 }
 
 // New returns a new client.
 func New(appID string, appKey string) *Client {
 	return &Client{
-		appID:      appID,
-		appKey:     appKey,
-		httpClient: &http.Client{},
+		AppID:      appID,
+		AppKey:     appKey,
+		APIBaseURL: APIBaseURL,
+		HTTPClient: &http.Client{},
 	}
 }
 
@@ -33,7 +35,7 @@ func (c *Client) getWithQueryParams(
 	params map[string]string,
 	responseBody any,
 ) error {
-	path = APIBaseURL + path
+	path = c.APIBaseURL + path
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, path, nil)
 	if err != nil {
@@ -41,8 +43,8 @@ func (c *Client) getWithQueryParams(
 	}
 	req.Header.Add("User-Agent", "go")
 	q := req.URL.Query()
-	q.Add("app_id", c.appID)
-	q.Add("app_key", c.appKey)
+	q.Add("app_id", c.AppID)
+	q.Add("app_key", c.AppKey)
 	for key, value := range params {
 		q.Add(key, value)
 	}
@@ -50,7 +52,7 @@ func (c *Client) getWithQueryParams(
 
 	slog.Info(req.Method + " " + req.URL.String())
 
-	resp, err := c.httpClient.Do(req)
+	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
 		return err
 	}
