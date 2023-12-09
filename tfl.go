@@ -8,14 +8,17 @@ import (
 	"net/http"
 )
 
+// APIBaseURL is the base URL domain for the TfL API.
 const APIBaseURL = "https://api.tfl.gov.uk"
 
+// Client provides a mechanism to interact with the TfL API.
 type Client struct {
 	appID      string
 	appKey     string
 	httpClient *http.Client
 }
 
+// New returns a new client.
 func New(appID string, appKey string) *Client {
 	return &Client{
 		appID:      appID,
