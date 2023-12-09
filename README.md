@@ -29,4 +29,4 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ## License
 
-TODO
+This library is available under the MIT License. See the [LICENSE](https://github.com/jamesalexatkin/tfl-go/blob/main/LICENSE) file for more information.
