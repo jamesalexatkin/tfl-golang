@@ -10,7 +10,7 @@ type AccidentDetail struct {
 	Date       time.Time  `json:"date"`
 	Severity   string     `json:"severity"`
 	Borough    string     `json:"borough"`
-	Casulaties []Casualty `json:"casualties"`
+	Casualties []Casualty `json:"casualties"`
 	Vehicles   []Vehicle  `json:"vehicles"`
 }
 
