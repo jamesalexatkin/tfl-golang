@@ -16,6 +16,8 @@ type Client struct {
 }
 
 func (c *Client) getWithQueryParams(ctx context.Context, path string, params map[string]string, responseBody any) error {
+	path = ApiBaseURL + path
+
 	params["app_id"] = c.appID
 	params["app_key"] = c.appKey
 	path = path + "?"
@@ -47,9 +49,4 @@ func (c *Client) getWithQueryParams(ctx context.Context, path string, params map
 
 func (c *Client) get(ctx context.Context, path string, responseBody any) error {
 	return c.getWithQueryParams(ctx, path, map[string]string{}, responseBody)
-}
-
-func addQueryParamsToPath(appID string, appKey string) string {
-	const query = "?app_id=%s&app_key=%s"
-	return fmt.Sprintf(query, appID, appKey)
 }
