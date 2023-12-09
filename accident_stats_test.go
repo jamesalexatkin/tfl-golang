@@ -30,7 +30,8 @@ func Test_GetAccidentDetails(t *testing.T) {
 				bytes, err := json.Marshal(accidentDetails)
 				require.NoError(t, err)
 				w.WriteHeader(http.StatusOK)
-				w.Write(bytes)
+				_, err = w.Write(bytes)
+				require.NoError(t, err)
 			})),
 			expected: []tfl.AccidentDetail{
 				{ID: 123},
