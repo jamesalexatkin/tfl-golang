@@ -27,7 +27,12 @@ func New(appID string, appKey string) *Client {
 	}
 }
 
-func (c *Client) getWithQueryParams(ctx context.Context, path string, params map[string]string, responseBody any) error {
+func (c *Client) getWithQueryParams(
+	ctx context.Context,
+	path string,
+	params map[string]string,
+	responseBody any,
+) error {
 	path = APIBaseURL + path
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, path, nil)
