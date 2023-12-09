@@ -3,6 +3,7 @@ package tfl
 import (
 	"context"
 	"fmt"
+	"strconv"
 )
 
 // GetActiveServiceTypes returns the service type active for a mode. Currently only supports tube.
@@ -29,7 +30,7 @@ func (c *Client) GetArrivalPredictionsForMode(ctx context.Context, mode string, 
 	path := fmt.Sprintf("/Mode/%s/Arrivals", mode)
 
 	predictions := []Prediction{}
-	err := c.get(ctx, path, &predictions)
+	err := c.getWithQueryParams(ctx, path, map[string]string{"count": strconv.Itoa(count)}, &predictions)
 	if err != nil {
 		return nil, err
 	}
