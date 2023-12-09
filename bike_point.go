@@ -8,7 +8,7 @@ import (
 // GetAllBikePoints gets all bike point locations. The Place object has an addtionalProperties array which contains the nbBikes, nbDocks and nbSpaces numbers which give the status of the BikePoint. A mismatch in these numbers i.e. nbDocks - (nbBikes + nbSpaces) != 0 indicates broken docks.
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/BikePoint/BikePoint_GetAll
 func (c *Client) GetAllBikePoints(ctx context.Context) ([]Place, error) {
-	path := fmt.Sprintf("%s/BikePoint", ApiBaseURL)
+	path := "/BikePoint"
 
 	places := []Place{}
 	err := c.get(ctx, path, &places)

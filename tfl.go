@@ -3,34 +3,46 @@ package tfl
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
+	"io"
+	"log/slog"
 	"net/http"
 )
 
 const ApiBaseURL = "https://api.tfl.gov.uk"
 
 type Client struct {
-	httpClient *http.Client
 	appID      string
 	appKey     string
+	httpClient *http.Client
+}
+
+func New(appID string, appKey string) *Client {
+	return &Client{
+		appID:      appID,
+		appKey:     appKey,
+		httpClient: &http.Client{},
+	}
 }
 
 func (c *Client) getWithQueryParams(ctx context.Context, path string, params map[string]string, responseBody any) error {
 	path = ApiBaseURL + path
 
-	params["app_id"] = c.appID
-	params["app_key"] = c.appKey
-	path = path + "?"
-	for key, value := range params {
-		path = path + fmt.Sprintf("%s=%s&", key, value)
-	}
-
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, path, nil)
 	if err != nil {
 		return err
 	}
+	req.Header.Add("User-Agent", "go")
+	q := req.URL.Query()
+	q.Add("app_id", c.appID)
+	q.Add("app_key", c.appKey)
+	for key, value := range params {
+		q.Add(key, value)
+	}
+	req.URL.RawQuery = q.Encode()
 
-	req.Header.Set("Content-Type", "application/json")
+	slog.Info(req.Method + " " + req.URL.String())
 
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
@@ -38,6 +50,11 @@ func (c *Client) getWithQueryParams(ctx context.Context, path string, params map
 	}
 
 	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		bodyStr, _ := io.ReadAll(resp.Body)
+		return errors.New(fmt.Sprintf("%s: %s", resp.Status, bodyStr))
+	}
 
 	err = json.NewDecoder(resp.Body).Decode(responseBody)
 	if err != nil {

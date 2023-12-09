@@ -4,8 +4,8 @@ import "time"
 
 type AccidentDetail struct {
 	ID         int        `json:"id"`
-	Lat        int        `json:"lat"`
-	Lon        int        `json:"lon"`
+	Lat        float64    `json:"lat"`
+	Lon        float64    `json:"lon"`
 	Location   string     `json:"location"`
 	Date       time.Time  `json:"date"`
 	Severity   string     `json:"severity"`
@@ -44,8 +44,8 @@ type Place struct {
 	AdditionalProperties []AdditionalProperty `json:"additionalProperties"`
 	Children             []Place              `json:"children"`
 	ChildrenURLs         []string             `json:"childrenUrls"`
-	Lat                  int                  `json:"lat"`
-	Lon                  int                  `json:"lon"`
+	Lat                  float64              `json:"lat"`
+	Lon                  float64              `json:"lon"`
 }
 
 type Prediction struct {
