@@ -2,7 +2,7 @@ package tfl
 
 import "time"
 
-// AccidentDetails provides information about an accident.
+// AccidentDetail provides information about an accident.
 type AccidentDetail struct {
 	ID         int        `json:"id"`
 	Lat        float64    `json:"lat"`

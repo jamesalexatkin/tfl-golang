@@ -16,6 +16,7 @@ linters:
 
     # Other disabled linters
     - exhaustruct
+    - varnamelen
     - wrapcheck
     - wsl
 

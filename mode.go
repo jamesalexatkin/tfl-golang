@@ -22,7 +22,6 @@ func (c *Client) GetActiveServiceTypes(ctx context.Context) ([]ActiveServiceType
 // GetArrivalPredictionsForMode gets the next arrival predictions for all stops of a given mode.
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Mode/Mode_Arrivals
 func (c *Client) GetArrivalPredictionsForMode(ctx context.Context, mode string, count int) ([]Prediction, error) {
-	// TODO: figure out how count works
 	path := fmt.Sprintf("/Mode/%s/Arrivals", mode)
 
 	predictions := []Prediction{}
