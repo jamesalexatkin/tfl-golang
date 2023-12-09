@@ -15,5 +15,6 @@ linters:
     - varcheck
 
     # Other disabled linters
-    - exhauststruct
+    - exhaustruct
+    - wrapcheck
     - wsl
