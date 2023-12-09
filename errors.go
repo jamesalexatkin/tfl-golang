@@ -2,6 +2,7 @@ package tfl
 
 import "fmt"
 
+// HTTPError can be returned to represent a failed HTTP call.
 type HTTPError struct {
 	Status string
 	Body   string

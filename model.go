@@ -2,6 +2,7 @@ package tfl
 
 import "time"
 
+// AccidentDetail provides information about an accident.
 type AccidentDetail struct {
 	ID         int        `json:"id"`
 	Lat        float64    `json:"lat"`
@@ -10,15 +11,17 @@ type AccidentDetail struct {
 	Date       time.Time  `json:"date"`
 	Severity   string     `json:"severity"`
 	Borough    string     `json:"borough"`
-	Casulaties []Casualty `json:"casualties"`
+	Casualties []Casualty `json:"casualties"`
 	Vehicles   []Vehicle  `json:"vehicles"`
 }
 
+// ActiveServiceType represents the type of service currently active for a mode of transport.
 type ActiveServiceType struct {
 	Mode        string `json:"mode"`
 	ServiceType string `json:"serviceType"`
 }
 
+// AdditionalProperty represents additional metadata.
 type AdditionalProperty struct {
 	Category        string `json:"category"`
 	Key             string `json:"key"`
@@ -27,6 +30,7 @@ type AdditionalProperty struct {
 	Modified        string `json:"modified"`
 }
 
+// Casualty represents a casualty that occurred during an accident.
 type Casualty struct {
 	Age      int    `json:"age"`
 	Class    string `json:"class"`
@@ -35,6 +39,7 @@ type Casualty struct {
 	AgeBand  string `json:"ageBand"`
 }
 
+// Place represents a place managed by TfL. This includes things like bike points, coach bays and speed cameras.
 type Place struct {
 	ID                   string               `json:"id"`
 	URL                  string               `json:"url"`
@@ -48,6 +53,7 @@ type Place struct {
 	Lon                  float64              `json:"lon"`
 }
 
+// Prediction represents the expected arrival of a vehicle (e.g. a tube or bus) on its way to a destination.
 type Prediction struct {
 	ID                  string           `json:"id"`
 	OperationType       int              `json:"operationType"`
@@ -71,6 +77,7 @@ type Prediction struct {
 	Timing              PredictionTiming `json:"timing"`
 }
 
+// PredictionTiming represents the timing metadata for a `Prediction`.
 type PredictionTiming struct {
 	CountdownServerAdjustment string `json:"countdownServerAdjustment"`
 	Source                    string `json:"source"`
@@ -80,6 +87,7 @@ type PredictionTiming struct {
 	Received                  string `json:"received"`
 }
 
+// Vehicle represents a vehicle.
 type Vehicle struct {
 	Type string `json:"type"`
 }

@@ -18,6 +18,7 @@ func main() {
 	bikePoints, err := api.GetAllBikePoints(ctx)
 	if err != nil {
 		slog.Error(err.Error())
+
 		return
 	}
 
