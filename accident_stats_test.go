@@ -21,9 +21,9 @@ func Test_GetAccidentDetails(t *testing.T) {
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			tt := tt
 
 			got, err := tt.c.GetAccidentDetails(context.Background(), tt.year)
 			if (err != nil) != tt.wantErr {

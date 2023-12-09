@@ -19,6 +19,15 @@ linters:
     - wrapcheck
     - wsl
 
+linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - $gostd
+          - github.com/jamesalexatkin/tfl-go
+          - github.com/stretchr/testify/require
+
 issues:
   include:
     - EXC0012 # revive: Enforces comments on exported members
