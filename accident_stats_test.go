@@ -1,9 +1,10 @@
-package tfl
+package tfl_test
 
 import (
 	"context"
 	"testing"
 
+	"github.com/jamesalexatkin/tfl-go"
 	"github.com/stretchr/testify/require"
 )
 
@@ -14,9 +15,9 @@ func Test_GetAccidentDetails(t *testing.T) {
 	}
 	tests := []struct {
 		name    string
-		c       *Client
+		c       *tfl.Client
 		args    args
-		want    []AccidentDetail
+		want    []tfl.AccidentDetail
 		wantErr bool
 	}{
 		// TODO: Add test cases.

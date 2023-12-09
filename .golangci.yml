@@ -13,3 +13,6 @@ linters:
     - scopelint
     - structcheck
     - varcheck
+
+    # Other disabled linters
+    - wsl
