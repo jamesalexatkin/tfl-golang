@@ -3,8 +3,6 @@ package tfl
 import (
 	"context"
 	"encoding/json"
-	"errors"
-	"fmt"
 	"io"
 	"log/slog"
 	"net/http"
@@ -53,7 +51,7 @@ func (c *Client) getWithQueryParams(ctx context.Context, path string, params map
 
 	if resp.StatusCode != http.StatusOK {
 		bodyStr, _ := io.ReadAll(resp.Body)
-		return errors.New(fmt.Sprintf("%s: %s", resp.Status, bodyStr))
+		return HTTPError{Status: resp.Status, Body: string(bodyStr)}
 	}
 
 	err = json.NewDecoder(resp.Body).Decode(responseBody)
