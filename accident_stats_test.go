@@ -9,14 +9,12 @@ import (
 )
 
 func Test_GetAccidentDetails(t *testing.T) {
-	type args struct {
-		ctx  context.Context
-		year int
-	}
+	t.Parallel()
+
 	tests := []struct {
 		name    string
 		c       *tfl.Client
-		args    args
+		year    int
 		want    []tfl.AccidentDetail
 		wantErr bool
 	}{
@@ -24,9 +22,13 @@ func Test_GetAccidentDetails(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := tt.c.GetAccidentDetails(tt.args.ctx, tt.args.year)
+			t.Parallel()
+			tt := tt
+
+			got, err := tt.c.GetAccidentDetails(context.Background(), tt.year)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Client.GetAccidentDetails() error = %v, wantErr %v", err, tt.wantErr)
+
 				return
 			}
 			require.Equal(t, tt.want, got)

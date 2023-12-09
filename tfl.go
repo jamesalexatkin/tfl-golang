@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-const ApiBaseURL = "https://api.tfl.gov.uk"
+const APIBaseURL = "https://api.tfl.gov.uk"
 
 type Client struct {
 	appID      string
@@ -25,7 +25,7 @@ func New(appID string, appKey string) *Client {
 }
 
 func (c *Client) getWithQueryParams(ctx context.Context, path string, params map[string]string, responseBody any) error {
-	path = ApiBaseURL + path
+	path = APIBaseURL + path
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, path, nil)
 	if err != nil {
@@ -51,6 +51,7 @@ func (c *Client) getWithQueryParams(ctx context.Context, path string, params map
 
 	if resp.StatusCode != http.StatusOK {
 		bodyStr, _ := io.ReadAll(resp.Body)
+
 		return HTTPError{Status: resp.Status, Body: string(bodyStr)}
 	}
 
