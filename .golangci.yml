@@ -18,3 +18,9 @@ linters:
     - exhaustruct
     - wrapcheck
     - wsl
+
+issues:
+  include:
+    - EXC0012 # revive: Enforces comments on exported members
+    - EXC0014 # revive: Enforces comment style on exported members
+    
