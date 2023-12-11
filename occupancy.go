@@ -37,7 +37,13 @@ func (c *Client) GetAllCarParkOccupancies(ctx context.Context) ([]CarParkOccupan
 
 // GetChargeConnectorOccupancy gets the occupancy for a charge connector with a given ID (sourceSystemPlaceId).
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Occupancy/Occupancy_GetChargeConnectorStatus
-func (c *Client) GetChargeConnectorOccupancy(ctx context.Context, chargeConnectorIDs []string) ([]ChargeConnectorOccupancy, error) {
+func (c *Client) GetChargeConnectorOccupancy(
+	ctx context.Context,
+	chargeConnectorIDs []string,
+) (
+	[]ChargeConnectorOccupancy,
+	error,
+) {
 	path := fmt.Sprintf("/Occupancy/ChargeConnector/%s", strings.Join(chargeConnectorIDs, ","))
 
 	chargeConnectorOccupancies := []ChargeConnectorOccupancy{}
