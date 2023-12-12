@@ -30,6 +30,40 @@ type AdditionalProperty struct {
 	Modified        string `json:"modified"`
 }
 
+// Bay represents an individual parking bay in a car park.
+type Bay struct {
+	BayType  string `json:"bayType"`
+	BayCount int    `json:"bayCount"`
+	Free     int    `json:"free"`
+	Occupied int    `json:"occupied"`
+}
+
+// BikePointOccupancy represents the occupancy of a bike point.
+type BikePointOccupancy struct {
+	ID                 string `json:"id"`
+	Name               string `json:"name"`
+	BikesCount         string `json:"bikesCount"`
+	EmptyDocks         string `json:"emptyDocks"`
+	TotalDocks         string `json:"totalDocks"`
+	StandardBikesCount string `json:"standardBikesCount"`
+	EBikesCount        string `json:"eBikesCount"`
+}
+
+// CarParkOccupancy represents the occupancy of a car park.
+type CarParkOccupancy struct {
+	ID                string `json:"id"`
+	Bays              []Bay  `json:"bays"`
+	Name              string `json:"name"`
+	CarParkDetailsURL string `json:"carParkDetailsUrl"`
+}
+
+// ChargeConnectorOccupancy represents the occupancy of a charge connector.
+type ChargeConnectorOccupancy struct {
+	ID                  string `json:"id"`
+	SourceSystemPlaceID string `json:"sourceSystemPlaceId"`
+	Status              string `json:"status"`
+}
+
 // Casualty represents a casualty that occurred during an accident.
 type Casualty struct {
 	Age      int    `json:"age"`
