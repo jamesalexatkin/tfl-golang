@@ -1,10 +1,10 @@
-
-
-# TfL Unified API in Go
-
 <h1 align="center">
   <br>
   <img src="examples/tfl-go.png" alt="Roundel" width="200">
+  <br>
+  <br>
+  TfL Unified API in Go
+  <br>
 </h1>
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/jamesalexatkin/tfl-go.svg)](https://pkg.go.dev/github.com/jamesalexatkin/tfl-go)
