@@ -9,7 +9,7 @@
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/jamesalexatkin/tfl-go.svg)](https://pkg.go.dev/github.com/jamesalexatkin/tfl-go)
 ![GitHub License](https://img.shields.io/github/license/jamesalexatkin/tfl-go)
-[![Go](https://github.com/jamesalexatkin/tfl-go/actions/workflows/go.yml/badge.svg)](https://github.com/jamesalexatkin/tfl-go/actions/workflows/go.yml)
+[![Build](https://github.com/jamesalexatkin/tfl-go/actions/workflows/go.yml/badge.svg)](https://github.com/jamesalexatkin/tfl-go/actions/workflows/go.yml)
 [![Go Coverage](https://github.com/jamesalexatkin/tfl-go/wiki/coverage.svg)](https://raw.githack.com/wiki/jamesalexatkin/tfl-go/coverage.html)
 
 
@@ -21,7 +21,7 @@ This is a Go wrapper that provides access to the [Transport for London (TfL) Uni
 To install the TfL Go Library, use the following command:
 
 ```bash
-go get github.com/jamesalexatkin/tfl-go
+go get github.com/jamesalexatkin/tfl-golang
 ```
 
 ## Authentication
