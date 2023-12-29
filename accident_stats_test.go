@@ -96,7 +96,8 @@ func Test_GetAccidentDetailsIntegration(t *testing.T) {
 		Severity: "Slight",
 		Borough:  "City of Westminster",
 		Casualties: []tfl.Casualty{
-			{Age: 30,
+			{
+				Age:      30,
 				Class:    "Driver",
 				Severity: "Slight",
 				Mode:     "PedalCycle",

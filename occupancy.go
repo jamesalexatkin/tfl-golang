@@ -15,7 +15,6 @@ func (c *Client) GetCarParkOccupancy(ctx context.Context, carParkID string) (*Ca
 	carParkOccupancy := CarParkOccupancy{}
 
 	err := c.get(ctx, path, &carParkOccupancy)
-
 	if err != nil {
 		return nil, err
 	}
@@ -32,7 +31,6 @@ func (c *Client) GetAllCarParkOccupancies(ctx context.Context) ([]CarParkOccupan
 	carParkOccupancies := []CarParkOccupancy{}
 
 	err := c.get(ctx, path, &carParkOccupancies)
-
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +53,6 @@ func (c *Client) GetChargeConnectorOccupancy(
 	chargeConnectorOccupancies := []ChargeConnectorOccupancy{}
 
 	err := c.get(ctx, path, &chargeConnectorOccupancies)
-
 	if err != nil {
 		return []ChargeConnectorOccupancy{}, err
 	}
@@ -72,13 +69,11 @@ func (c *Client) GetAllChargeConnectorOccupancies(ctx context.Context) ([]Charge
 	chargeConnectorOccupancies := []ChargeConnectorOccupancy{}
 
 	err := c.get(ctx, path, &chargeConnectorOccupancies)
-
 	if err != nil {
 		return nil, err
 	}
 
 	return chargeConnectorOccupancies, err
-
 }
 
 // GetBikePointOccupancies gets the occupancy for bike points.

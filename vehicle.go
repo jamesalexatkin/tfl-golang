@@ -17,7 +17,6 @@ func (c *Client) GetVehiclePredictions(ctx context.Context, vehicleIDs []string)
 	predictions := []Prediction{}
 
 	err := c.get(ctx, path, &predictions)
-
 	if err != nil {
 		return nil, err
 	}
