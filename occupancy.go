@@ -85,7 +85,6 @@ func (c *Client) GetAllChargeConnectorOccupancies(ctx context.Context) ([]Charge
 //
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Occupancy/Occupancy_GetBikePointsOccupancies
 func (c *Client) GetBikePointOccupancies(ctx context.Context, bikePointIDs []string) ([]BikePointOccupancy, error) {
-
 	path := fmt.Sprintf("/Occupancy/ChargeConnector/%s", strings.Join(bikePointIDs, ","))
 
 	bikePointOccupancies := []BikePointOccupancy{}
