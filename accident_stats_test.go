@@ -5,7 +5,9 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
+	"time"
 
 	"github.com/jamesalexatkin/tfl-go"
 	"github.com/stretchr/testify/require"
@@ -69,4 +71,43 @@ func Test_GetAccidentDetails(t *testing.T) {
 			require.Equal(t, tc.expected, actual)
 		})
 	}
+}
+
+func Test_GetAccidentDetailsIntegration(t *testing.T) {
+	t.Parallel()
+
+	if testing.Short() {
+		t.Skip()
+	}
+
+	appID := os.Getenv("APP_ID")
+	appKey := os.Getenv("APP_KEY")
+	api := tfl.New(appID, appKey)
+
+	accidentDetails, err := api.GetAccidentDetails(context.Background(), 2015)
+	require.NoError(t, err)
+
+	expectedDetail := tfl.AccidentDetail{
+		ID:       243890,
+		Lat:      51.505742,
+		Lon:      -0.131005,
+		Location: "The Mall junction with Horse Guards Road",
+		Date:     time.Date(2015, time.July, 4, 1, 55, 0, 0, time.UTC),
+		Severity: "Slight",
+		Borough:  "City of Westminster",
+		Casualties: []tfl.Casualty{
+			{Age: 30,
+				Class:    "Driver",
+				Severity: "Slight",
+				Mode:     "PedalCycle",
+				AgeBand:  "Adult",
+			},
+		},
+		Vehicles: []tfl.Vehicle{
+			{Type: "Taxi"},
+			{Type: "PedalCycle"},
+		},
+	}
+
+	require.Contains(t, accidentDetails, expectedDetail)
 }
