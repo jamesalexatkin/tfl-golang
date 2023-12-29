@@ -5,11 +5,11 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/jamesalexatkin/tfl-go"
+	"github.com/jamesalexatkin/tfl-go/internal/test"
 	"github.com/stretchr/testify/require"
 )
 
@@ -76,13 +76,9 @@ func Test_GetAccidentDetails(t *testing.T) {
 func Test_GetAccidentDetailsIntegration(t *testing.T) {
 	t.Parallel()
 
-	if testing.Short() {
-		t.Skip()
-	}
+	test.SkipIfShort(t)
 
-	appID := os.Getenv("APP_ID")
-	appKey := os.Getenv("APP_KEY")
-	api := tfl.New(appID, appKey)
+	api := test.NewTestClient()
 
 	accidentDetails, err := api.GetAccidentDetails(context.Background(), 2015)
 	require.NoError(t, err)
