@@ -13,6 +13,7 @@ func (c *Client) GetCarParkOccupancy(ctx context.Context, carParkID string) (*Ca
 	path := fmt.Sprintf("/Occupancy/CarPark/%s", carParkID)
 
 	carParkOccupancy := CarParkOccupancy{}
+
 	err := c.get(ctx, path, &carParkOccupancy)
 	if err != nil {
 		return nil, err
@@ -22,11 +23,13 @@ func (c *Client) GetCarParkOccupancy(ctx context.Context, carParkID string) (*Ca
 }
 
 // GetAllCarParkOccupancies returns the occupancy for all car parks that have occupancy data.
+//
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Occupancy/Occupancy_Get_0
 func (c *Client) GetAllCarParkOccupancies(ctx context.Context) ([]CarParkOccupancy, error) {
 	path := "/Occupancy/CarPark"
 
 	carParkOccupancies := []CarParkOccupancy{}
+
 	err := c.get(ctx, path, &carParkOccupancies)
 	if err != nil {
 		return nil, err
@@ -36,6 +39,7 @@ func (c *Client) GetAllCarParkOccupancies(ctx context.Context) ([]CarParkOccupan
 }
 
 // GetChargeConnectorOccupancy gets the occupancy for a charge connector with a given ID (sourceSystemPlaceId).
+//
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Occupancy/Occupancy_GetChargeConnectorStatus
 func (c *Client) GetChargeConnectorOccupancy(
 	ctx context.Context,
@@ -47,6 +51,7 @@ func (c *Client) GetChargeConnectorOccupancy(
 	path := fmt.Sprintf("/Occupancy/ChargeConnector/%s", strings.Join(chargeConnectorIDs, ","))
 
 	chargeConnectorOccupancies := []ChargeConnectorOccupancy{}
+
 	err := c.get(ctx, path, &chargeConnectorOccupancies)
 	if err != nil {
 		return []ChargeConnectorOccupancy{}, err
@@ -56,11 +61,13 @@ func (c *Client) GetChargeConnectorOccupancy(
 }
 
 // GetAllChargeConnectorOccupancies gets the occupancy for all charge connectors.
+//
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Occupancy/Occupancy_GetAllChargeConnectorStatus
 func (c *Client) GetAllChargeConnectorOccupancies(ctx context.Context) ([]ChargeConnectorOccupancy, error) {
 	path := "/Occupancy/ChargeConnector"
 
 	chargeConnectorOccupancies := []ChargeConnectorOccupancy{}
+
 	err := c.get(ctx, path, &chargeConnectorOccupancies)
 	if err != nil {
 		return nil, err
@@ -70,11 +77,13 @@ func (c *Client) GetAllChargeConnectorOccupancies(ctx context.Context) ([]Charge
 }
 
 // GetBikePointOccupancies gets the occupancy for bike points.
+//
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Occupancy/Occupancy_GetBikePointsOccupancies
 func (c *Client) GetBikePointOccupancies(ctx context.Context, bikePointIDs []string) ([]BikePointOccupancy, error) {
 	path := fmt.Sprintf("/Occupancy/ChargeConnector/%s", strings.Join(bikePointIDs, ","))
 
 	bikePointOccupancies := []BikePointOccupancy{}
+
 	err := c.get(ctx, path, &bikePointOccupancies)
 	if err != nil {
 		return nil, err

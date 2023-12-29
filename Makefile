@@ -4,6 +4,11 @@ lint:
 	golangci-lint run --config=./.golangci.yml
 
 test:
-	@echo Running tests
+	@echo Running unit tests
+	go clean -testcache && \
+	go test -short ./...
+
+test-all:
+	@echo Running unit and integration tests
 	go clean -testcache && \
 	go test ./...
