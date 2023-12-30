@@ -12,10 +12,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// TODO:
-// Get
-// Search
-
 func Test_GetAllBikePoints(t *testing.T) {
 	t.Parallel()
 
