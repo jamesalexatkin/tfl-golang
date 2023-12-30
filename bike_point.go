@@ -44,16 +44,16 @@ func (c *Client) GetBikePoint(ctx context.Context, bikePointID string) (*Place, 
 // BikePoint by its id on /BikePoint/id.
 //
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/BikePoint/BikePoint_Search
-func (c *Client) SearchBikePoint(ctx context.Context, searchQuery string) (*Place, error) {
+func (c *Client) SearchBikePoint(ctx context.Context, searchQuery string) ([]Place, error) {
 	path := "/BikePoint/Search"
 
-	place := Place{}
+	places := []Place{}
 	err := c.getWithQueryParams(ctx, path, map[string]string{
 		"query": searchQuery,
-	}, &place)
+	}, &places)
 	if err != nil {
 		return nil, err
 	}
 
-	return &place, err
+	return places, err
 }
