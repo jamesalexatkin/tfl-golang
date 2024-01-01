@@ -63,9 +63,20 @@ func (c *Client) GetPlacesByType(ctx context.Context, types []string, activeOnly
 	return places, nil
 }
 
-// Gets the place with the given id.
+// GetPlace gets the place with the given id.
 //
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Place/Place_Get
+func (c *Client) GetPlace(ctx context.Context, bikePointID string) (*Place, error) {
+	path := fmt.Sprintf("/Place/%s", bikePointID)
+
+	place := Place{}
+	err := c.get(ctx, path, &place)
+	if err != nil {
+		return nil, err
+	}
+
+	return &place, err
+}
 
 // Gets the places that lie within a geographic region. The geographic region of interest can either be specified by using a lat/lon geo-point and a radius in metres to return places within the locus defined by the lat/lon of its centre or alternatively, by the use of a bounding box defined by the lat/lon of its north-west and south-east corners. Optionally filters on type and can strip properties for a smaller payload.
 //
