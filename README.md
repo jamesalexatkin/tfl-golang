@@ -13,8 +13,6 @@
 [![Go Coverage](https://github.com/jamesalexatkin/tfl-go/wiki/coverage.svg)](https://raw.githack.com/wiki/jamesalexatkin/tfl-go/coverage.html)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jamesalexatkin/tfl-go)](https://goreportcard.com/report/github.com/jamesalexatkin/tfl-go)
 
-
-
 This is a Go wrapper that provides access to the [Transport for London (TfL) Unified API](https://api.tfl.gov.uk/). It allows developers to retrieve information about TfL services, such as tube lines, bus routes, and bike points.
 
 ## Installation
@@ -36,6 +34,8 @@ TODO
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+If making a pull request, please ensure that the linter checks pass (by running `make lint`) and that tests still work. You'll need to grab an API key to run integration tests locally. Set the two environment variables (`APP_ID` and `APP_KEY`) accordingly, then run `make test-all` to run unit and integration tests.
 
 ## License
 
