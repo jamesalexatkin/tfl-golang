@@ -87,12 +87,6 @@ type Place struct {
 	Lon                  float64              `json:"lon"`
 }
 
-// PlaceCategory represents a category of a place.
-type PlaceCategory struct {
-	Category      string   `json:"category"`
-	AvailableKeys []string `json:"availableKeys"`
-}
-
 // Prediction represents the expected arrival of a vehicle (e.g. a tube or bus) on its way to a destination.
 type Prediction struct {
 	ID                  string           `json:"id"`
