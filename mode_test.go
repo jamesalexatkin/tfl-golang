@@ -12,6 +12,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+//nolint:dupl
 func Test_GetActiveServiceTypes(t *testing.T) {
 	t.Parallel()
 
@@ -89,6 +90,7 @@ func Test_GetActiveServiceTypesIntegration(t *testing.T) {
 	require.Equal(t, expectedServiceTypes, activeServiceTypes)
 }
 
+//nolint:dupl
 func Test_GetArrivalPredictionsForMode(t *testing.T) {
 	t.Parallel()
 
