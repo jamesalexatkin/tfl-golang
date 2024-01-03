@@ -86,7 +86,7 @@ func Test_GetActiveServiceTypesIntegration(t *testing.T) {
 		{Mode: "tube", ServiceType: "Regular"},
 	}
 
-	require.Equal(t, activeServiceTypes, expectedServiceTypes)
+	require.Equal(t, expectedServiceTypes, activeServiceTypes)
 }
 
 func Test_GetArrivalPredictionsForMode(t *testing.T) {
