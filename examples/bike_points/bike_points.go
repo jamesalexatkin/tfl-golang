@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/jamesalexatkin/tfl-go"
+	"github.com/jamesalexatkin/tfl-golang"
 )
 
 func main() {

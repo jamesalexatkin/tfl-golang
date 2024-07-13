@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/jamesalexatkin/tfl-go"
-	"github.com/jamesalexatkin/tfl-go/internal/test"
+	"github.com/jamesalexatkin/tfl-golang"
+	"github.com/jamesalexatkin/tfl-golang/internal/test"
 	"github.com/stretchr/testify/require"
 )
 

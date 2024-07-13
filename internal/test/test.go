@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/jamesalexatkin/tfl-go"
+	"github.com/jamesalexatkin/tfl-golang"
 	"github.com/stretchr/testify/require"
 )
 
