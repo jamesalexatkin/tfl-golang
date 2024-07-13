@@ -1,4 +1,4 @@
-module github.com/jamesalexatkin/tfl-go
+module github.com/jamesalexatkin/tfl-golang
 
 go 1.21
 

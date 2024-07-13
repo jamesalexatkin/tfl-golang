@@ -26,7 +26,7 @@ linters-settings:
       main:
         allow:
           - $gostd
-          - github.com/jamesalexatkin/tfl-go
+          - github.com/jamesalexatkin/tfl-golang
           - github.com/stretchr/testify/require
 
 issues:
