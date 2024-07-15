@@ -33,7 +33,7 @@ type AdditionalProperty struct {
 // AffectedRoute represents a route affected by a disruption.
 type AffectedRoute struct {
 	ID                              string                            `json:"id"`
-	LineId                          string                            `json:"lineId"`
+	LineID                          string                            `json:"lineId"`
 	RouteCode                       string                            `json:"routeCode"`
 	Name                            string                            `json:"name"`
 	LineString                      string                            `json:"lineString"`
@@ -49,7 +49,7 @@ type AffectedRoute struct {
 
 // AffectedStop represents a stop affected by a disruption.
 type AffectedStop struct {
-	NaptanId             string          `json:"naptanId"`
+	NaptanID             string          `json:"naptanId"`
 	PlatformName         string          `json:"platformName"`
 	Indicator            string          `json:"indicator"`
 	StopLetter           string          `json:"stopLetter"`
@@ -66,7 +66,7 @@ type AffectedStop struct {
 	FullName             string          `json:"fullName"`
 	NaptanMode           string          `json:"naptanMode"`
 	Status               bool            `json:"status"`
-	IndividualStopId     string          `json:"individualStopId"`
+	IndividualStopID     string          `json:"individualStopId"`
 	ID                   string          `json:"id"`
 	URL                  string          `json:"url"`
 	CommonName           string          `json:"commonName"`
@@ -159,9 +159,9 @@ type Line struct {
 
 // LineGroup represents national metadata identifying the group of the line.
 type LineGroup struct {
-	NaptanIdReference string   `json:"naptanIdReference"`
+	NaptanIDReference string   `json:"naptanIdReference"`
 	StationAtcoCode   string   `json:"stationAtcoCode"`
-	LineIdentifier    []string `json:"lineIdentifier"`
+	LineIDentifier    []string `json:"lineIdentifier"`
 }
 
 // LineModeGroup represents the mode group of a line.
@@ -173,7 +173,7 @@ type LineModeGroup struct {
 // LineStatus represents the status of a particular line.
 type LineStatus struct {
 	ID                        int              `json:"id"`
-	LineId                    string           `json:"lineId"`
+	LineID                    string           `json:"lineId"`
 	StatusSeverity            int              `json:"statusSeverity"`
 	StatusSeverityDescription string           `json:"statusSeverityDescription"`
 	Reason                    string           `json:"reason"`
@@ -288,7 +288,7 @@ type Status struct {
 
 // StopPoint represents a stopping point on a line.
 type StopPoint struct {
-	NaptanId             string          `json:"naptanId"`
+	NaptanID             string          `json:"naptanId"`
 	PlatformName         string          `json:"platformName"`
 	Indicator            string          `json:"indicator"`
 	StopLetter           string          `json:"stopLetter"`
@@ -305,7 +305,7 @@ type StopPoint struct {
 	FullName             string          `json:"fullName"`
 	NaptanMode           string          `json:"naptanMode"`
 	Status               bool            `json:"status"`
-	IndividualStopId     string          `json:"individualStopId"`
+	IndividualStopID     string          `json:"individualStopId"`
 	ID                   string          `json:"id"`
 	URL                  string          `json:"url"`
 	CommonName           string          `json:"commonName"`
