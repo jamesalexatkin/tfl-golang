@@ -143,6 +143,7 @@ type Disruption struct {
 	ClosureText         string          `json:"closureText"`
 }
 
+// Line represents a particular line on a mode of transport.
 type Line struct {
 	ID        string   `json:"id"`
 	Name      string   `json:"name"`
@@ -156,12 +157,14 @@ type Line struct {
 	Network   string   `json:"network"`
 }
 
+// LineGroup represents national metadata identifying the group of the line.
 type LineGroup struct {
 	NaptanIdReference string   `json:"naptanIdReference"`
 	StationAtcoCode   string   `json:"stationAtcoCode"`
 	LineIdentifier    []string `json:"lineIdentifier"`
 }
 
+// LineModeGroup represents the mode group of a line.
 type LineModeGroup struct {
 	ModeName       string   `json:"modeName"`
 	LineIdentifier []string `json:"lineIdentifier"`
@@ -234,6 +237,7 @@ type PredictionTiming struct {
 	Received                  string `json:"received"`
 }
 
+// Property represents an additional property for a station or stop point.
 type Property struct {
 	Category        string    `json:"category"`
 	Key             string    `json:"key"`
@@ -282,6 +286,7 @@ type Status struct {
 	Crowding      Crowding       `json:"crowding"`
 }
 
+// StopPoint represents a stopping point on a line.
 type StopPoint struct {
 	NaptanId             string          `json:"naptanId"`
 	PlatformName         string          `json:"platformName"`
@@ -324,6 +329,7 @@ type TrainLoading struct {
 	Value             int    `json:"value"`
 }
 
+// ValidityPeriod represents a period of time for which a status is valid.
 type ValidityPeriod struct {
 	FromDate time.Time `json:"fromDate"`
 	ToDate   time.Time `json:"toDate"`
@@ -335,6 +341,7 @@ type Vehicle struct {
 	Type string `json:"type"`
 }
 
+// Via represents a stop point that a route can go via (e.g. Northern Line via Charing Cross).
 type Via struct {
 	Ordinal   int       `json:"ordinal"`
 	StopPoint StopPoint `json:"stopPoint"`
