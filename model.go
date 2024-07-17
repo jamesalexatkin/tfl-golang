@@ -177,8 +177,8 @@ type LineStatus struct {
 	StatusSeverity            int              `json:"statusSeverity"`
 	StatusSeverityDescription string           `json:"statusSeverityDescription"`
 	Reason                    string           `json:"reason"`
-	Created                   time.Time        `json:"created"`
-	Modified                  time.Time        `json:"modified"`
+	Created                   string           `json:"created"`  // Uses different format to time.Time
+	Modified                  string           `json:"modified"` // Uses different format to time.Time
 	ValidityPeriods           []ValidityPeriod `json:"validityPeriods"`
 	Disruption                Disruption       `json:"disruption"`
 }
@@ -278,8 +278,8 @@ type Status struct {
 	Name          string         `json:"name"`
 	ModeName      string         `json:"modeName"`
 	Disruptions   []Disruption   `json:"disruptions"`
-	Created       time.Time      `json:"created"`
-	Modified      time.Time      `json:"modified"`
+	Created       string         `json:"created"`  // Uses different format to time.Time
+	Modified      string         `json:"modified"` // Uses different format to time.Time
 	LineStatuses  []LineStatus   `json:"lineStatuses"`
 	RouteSections []RouteSection `json:"routeSections"`
 	ServiceTypes  []ServiceType  `json:"serviceTypes"`
