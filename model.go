@@ -183,6 +183,15 @@ type LineStatus struct {
 	Disruption                Disruption       `json:"disruption"`
 }
 
+type Mode struct {
+	IsTflService       bool   `json:"isTflService"`
+	IsFarePaying       bool   `json:"isFarePaying"`
+	IsScheduledService bool   `json:"isScheduledService"`
+	ModeName           string `json:"modeName"`
+	MotType            string `json:"motType"`
+	Network            string `json:"network"`
+}
+
 // PassengerFlow represents the flow of passengers at a particular time.
 type PassengerFlow struct {
 	TimeSlice string `json:"timeSlice"`

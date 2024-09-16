@@ -15,6 +15,15 @@ func main() {
 
 	api := tfl.New(appID, appKey)
 
+	modes, err := api.GetValidModes(ctx)
+	if err != nil {
+		slog.Error(err.Error())
+
+		return
+	}
+
+	slog.Info("fetched valid modes", "modes", modes)
+
 	statuses, err := api.GetLineStatusByMode(ctx, []string{"tube"})
 	if err != nil {
 		slog.Error(err.Error())
