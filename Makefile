@@ -11,7 +11,7 @@ test:
 test-integration:
 	@echo Running integration tests
 	go clean -testcache && \
-	go test -run Integration ./...
+	go test -run Integration 
 
 test-all:
 	@echo Running unit and integration tests

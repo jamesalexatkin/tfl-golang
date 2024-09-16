@@ -64,5 +64,5 @@ jobs:
       with:
         go-version: '1.21'
     - name: Integration tests
-      run: go test -run Integration ./...
+      run: go test -run Integration 
             
