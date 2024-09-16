@@ -54,7 +54,7 @@ jobs:
     - name: Go coverage report
       uses: ncruces/go-coverage-report@v0.2.9
             
-  unit-test:
+  integration-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
