@@ -3,8 +3,8 @@ package tfl
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
-	"log/slog"
 	"net/http"
 )
 
@@ -37,6 +37,13 @@ func (c *Client) getWithQueryParams(
 ) error {
 	path = c.APIBaseURL + path
 
+	if c.AppID == "" {
+		return errors.New("app id not set")
+	}
+	if c.AppKey == "" {
+		return errors.New("app id not set")
+	}
+
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, path, nil)
 	if err != nil {
 		return err
@@ -49,8 +56,6 @@ func (c *Client) getWithQueryParams(
 		q.Add(key, value)
 	}
 	req.URL.RawQuery = q.Encode()
-
-	slog.Info(req.Method + " " + req.URL.String())
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
