@@ -20,7 +20,7 @@ This is a Go wrapper that provides access to the [Transport for London (TfL) Uni
 To install the TfL Go Library, use the following command:
 
 ```bash
-go get github.com/jamesalexatkin/tfl-golanglang
+go get github.com/jamesalexatkin/tfl-golang
 ```
 
 ## Authentication
