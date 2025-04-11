@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"io"
-	"log/slog"
 	"net/http"
 )
 
@@ -49,8 +48,6 @@ func (c *Client) getWithQueryParams(
 		q.Add(key, value)
 	}
 	req.URL.RawQuery = q.Encode()
-
-	slog.Info(req.Method + " " + req.URL.String())
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
